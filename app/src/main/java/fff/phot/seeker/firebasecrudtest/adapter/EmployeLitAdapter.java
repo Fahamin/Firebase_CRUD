@@ -144,7 +144,7 @@ public class EmployeLitAdapter extends BaseAdapter {
                     return;
                 }
 
-                reference.child(user_mode).setValue(new Employee(name,newDept,joinDate,newSalary,user_mode)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                reference.child(user_mode).setValue(new Employee(newName,newDept,joinDate,newSalary,user_mode)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())

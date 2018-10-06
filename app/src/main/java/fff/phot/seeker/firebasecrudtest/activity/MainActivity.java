@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         //current date seting
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         ejoindate = sdf.format(cal.getTime());
 
         if (ename.isEmpty()) {
