@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+		
         etName = findViewById(R.id.editTextName);
         etsalary = findViewById(R.id.editTextSalary);
         etDept = findViewById(R.id.spinnerDepartment);
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void viewData(View view) {
+
         startActivity(new Intent(this, EmployelistActivity.class));
     }
 }

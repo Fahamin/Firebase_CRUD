@@ -1,8 +1,11 @@
 package fff.phot.seeker.firebasecrudtest.activity;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,12 +21,15 @@ import fff.phot.seeker.firebasecrudtest.adapter.EmployeLitAdapter;
 import fff.phot.seeker.firebasecrudtest.model.Employee;
 import fff.phot.seeker.firebasecrudtest.R;
 
+import static fff.phot.seeker.firebasecrudtest.R.id.buttonEditEmployee;
+
 public class EmployelistActivity extends AppCompatActivity {
 
     DatabaseReference reference;
     ListView employeeListView;
     private List<Employee> employeeList = new ArrayList<>();
 
+    Button editBtn,deletBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +45,12 @@ public class EmployelistActivity extends AppCompatActivity {
         employeeListView = findViewById(R.id.listviewEmplyId);
 
     }
+
     private void initVariblemethod() {
         reference = FirebaseDatabase.getInstance().getReference("CRUD_OPERATION_1");
 
     }
+
 
     private void loadEmployeData() {
         reference.addValueEventListener(new ValueEventListener() {
@@ -50,7 +58,7 @@ public class EmployelistActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 // clear list after editing
-               // employeeList.clear();
+                employeeList.clear();
 
                 // modify data to iterable mode use for each loop
                 Iterable<DataSnapshot> allemployees = dataSnapshot.getChildren();
